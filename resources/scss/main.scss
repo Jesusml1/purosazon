@@ -1,4 +1,4 @@
-@import "./resets", "./variables", "./mixins", "./layout";
+@import "./resets", "./variables", "./mixins", "./layout", "./home";
 
 $primary-color: #efc88b;
 $secondary-color: #f4e3b2;
@@ -6,4 +6,16 @@ $text-color: #050517;
 
 body {
   font-family: "Rubik", sans-serif;
+}
+
+.wrapper {
+  padding: 2.5rem;
+  @include for-tablet-portrait-up {
+    padding: 4.6875rem;
+  }
+}
+
+.content {
+  background-color: $primary-color;
+  min-height: 100vh;
 }

@@ -24,3 +24,7 @@
     @content;
   }
 }
+
+@mixin border-effect {
+  box-shadow: 0px 3.42px 3.42px 0px #00000040;
+}

@@ -1,0 +1,29 @@
+.content h2 {
+  margin-bottom: 3.125rem;
+}
+.categories {
+  display: grid;
+  grid-auto-columns: auto;
+  gap: 1rem;
+}
+
+.category {
+  background-color: $secondary-color;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  @include border-effect;
+  &__name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__title {
+    margin-left: 1rem;
+    font-weight: 500;
+  }
+}
