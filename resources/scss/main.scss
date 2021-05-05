@@ -1,17 +1,9 @@
-@import "./resets", "./variables";
+@import "./resets", "./variables", "./mixins", "./layout";
 
 $primary-color: #efc88b;
 $secondary-color: #f4e3b2;
 $text-color: #050517;
 
-@mixin flexCenter($direction) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: $direction;
-}
-
-.main {
-  margin: 0 auto;
-  @include flexCenter(row);
+body {
+  font-family: "Rubik", sans-serif;
 }
