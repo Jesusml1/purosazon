@@ -12,7 +12,6 @@
 </head>
 <body>
     <div class="header-container">
-
         <div class="logo-container">
             <div class="logo">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +34,9 @@
         </div>
     </div>
     @yield('content')
-    <div class="wrapper">
-
+    <div class="footer">
+        <div class='footer__text'>Puro Sazon&#169; 2021</div>
+        <a href='/' class='footer__about'>Acerca de este sitio</a>
     </div>
 </body>
 </html>
