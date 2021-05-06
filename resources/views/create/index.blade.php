@@ -13,15 +13,15 @@
             <br>
             <label for="category">Categoria:</label>
             <select name='category' required>
-                <option value="pollo">Pollo</option>
-                <option value="carne">Carne</option>
-                <option value="pasta">Pasta</option>
-                <option value="postre">Postre</option>
-                <option value="pizza">Pizza</option>
-                <option value="arroz">Arroz</option>
-                <option value="pescado">Pescado</option>
-                <option value="ensalada">Ensalada</option>
-                <option value="otro">Otro</option>
+                <option value="Pollo">Pollo</option>
+                <option value="Carne">Carne</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Postre">Postre</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Arroz">Arroz</option>
+                <option value="Pescado">Pescado</option>
+                <option value="Ensalada">Ensalada</option>
+                <option value="Otro">Otro</option>
             </select>
             <br>
             <label for="descripcion">Descripción:</label>

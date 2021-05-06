@@ -22,15 +22,15 @@ class RecepieSeeder extends Seeder
             $faker = Faker::create();
             $categories =
                 [
-                    'pollo',
-                    'carne',
-                    'pasta',
-                    'postre',
-                    'pizza',
-                    'arroz',
-                    'pescado',
-                    'ensalada',
-                    'otro'
+                    'Pollo',
+                    'Carne',
+                    'Pasta',
+                    'Postre',
+                    'Pizza',
+                    'Arroz',
+                    'Pescado',
+                    'Ensalada',
+                    'Otro'
                 ];
             $randomCategory = array_rand($categories, 1);
 
