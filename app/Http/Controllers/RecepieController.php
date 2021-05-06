@@ -20,7 +20,6 @@ class RecepieController extends Controller
     public function show($id)
     {
         $recepie = Recepie::findOrFail($id);
-
         return view('recepies.show', [
             'recepie' => $recepie,
         ]);

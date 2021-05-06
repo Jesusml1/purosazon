@@ -1,0 +1,39 @@
+.recepie {
+  background-color: $secondary-color;
+  padding: 1rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  @include border-effect;
+
+  .back-btn {
+    border: none;
+    padding: 1rem;
+    width: fit-content;
+    text-transform: uppercase;
+    color: white;
+    background-color: $btn-color;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    @include border-effect;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+  }
+  & * {
+    margin-bottom: 1rem;
+  }
+
+  &__category {
+    color: $btn-color;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+}
