@@ -276,11 +276,11 @@
 .form-container form input {
   height: 3rem;
   border-radius: 0.5rem;
-  box-shadow: 0px 3.42px 3.42px 0px #00000040;
   background-color: white;
 }
 .form-container form select,
-.form-container form input,
+.form-container form input[type=text],
+.form-container form input[type=email],
 .form-container form textarea {
   box-shadow: 0px 3.42px 3.42px 0px #00000040;
   border-radius: 0.5rem;
@@ -299,6 +299,13 @@
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0px 3.42px 3.42px 0px #00000040;
+}
+.form-container .agreement {
+  display: flex;
+  flex-direction: row;
+}
+.form-container .agreement label {
+  margin-left: 1rem;
 }
 
 .recepie {

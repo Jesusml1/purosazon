@@ -94,10 +94,12 @@
             <label for="email">Correo Electronico:</label>
             <input type="email" name='email' required placeholder="correo electronico">
             <br>
-            <label for="acuerdo">
-                <input type="checkbox" required name="acuerdo" id="">
-                ACEPTO HABER LEIDO LAS NORMAS DE SUMISION
-            </label>
+            <div class='agreement'>
+                <input type="checkbox" required name="agreement">
+                <label for="agreement">
+                    ACEPTO HABER LEIDO LAS NORMAS DE SUMISION
+                </label>
+            </div>
             <br>
             <button type="submit" class='btn'>Agregar receta</button>
         </form>

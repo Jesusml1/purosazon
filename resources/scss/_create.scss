@@ -47,11 +47,11 @@
     input {
       height: 3rem;
       border-radius: 0.5rem;
-      @include border-effect;
       background-color: white;
     }
     select,
-    input,
+    input[type="text"],
+    input[type="email"],
     textarea {
       @include border-effect;
       border-radius: 0.5rem;
@@ -71,5 +71,13 @@
     font-weight: bold;
     text-decoration: none;
     @include border-effect;
+  }
+
+  .agreement {
+    display: flex;
+    flex-direction: row;
+    label {
+      margin-left: 1rem;
+    }
   }
 }
