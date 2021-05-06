@@ -1,8 +1,5 @@
-@import "./resets", "./variables", "./mixins", "./navbar", "./home", "./footer";
-
-$primary-color: #efc88b;
-$secondary-color: #f4e3b2;
-$text-color: #050517;
+@import "./resets", "./variables", "./mixins";
+@import "./navbar", "./home", "./footer", "./create";
 
 body {
   font-family: "Rubik", sans-serif;

@@ -30,7 +30,7 @@
                     <button class="fa fa-search fa-lg search-icon"></button>
                 </form>
             </div>
-            <button class='btn'>AGREGAR</button>
+            <a class='btn' href='/agregar-receta'>AGREGAR</a>
         </div>
     </div>
     @yield('content')

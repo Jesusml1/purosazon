@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::view('/home', 'home.index');
+Route::view('/agregar-receta', 'create.index');
+
