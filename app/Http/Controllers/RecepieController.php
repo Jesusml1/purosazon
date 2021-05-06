@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class RecepieController extends Controller
 {
-    //
+    public function store(){
+
+    }
 }

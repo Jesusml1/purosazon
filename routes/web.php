@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RecepieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,6 @@ Route::get('/', function () {
 
 Route::view('/home', 'home.index');
 Route::view('/agregar-receta', 'create.index');
+
+Route::post('/recepie', [RecepieController::class, 'store']);
 
