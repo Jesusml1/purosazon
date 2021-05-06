@@ -8,7 +8,26 @@ use Illuminate\Support\Str;
 
 class RecepieController extends Controller
 {
-    public function store(){
+    public function index()
+    {
+        $recepies = Recepie::latest()->get();
+
+        return view('recepies.index', [
+            'recepies' => $recepies,
+        ]);
+    }
+
+    public function show($id)
+    {
+        $recepie = Recepie::findOrFail($id);
+
+        return view('recepies.show', [
+            'recepie' => $recepie,
+        ]);
+    }
+
+    public function store()
+    {
         $recepie = new Recepie();
 
         $recepie->id = Str::orderedUuid();
@@ -22,6 +41,13 @@ class RecepieController extends Controller
 
         $recepie->save();
 
+        return redirect('/home');
+    }
+
+    public function destroy($id)
+    {
+        $recepie = Recepie::findOrFail($id);
+        $recepie->delete();
         return redirect('/home');
     }
 }

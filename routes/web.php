@@ -20,5 +20,7 @@ Route::get('/', function () {
 Route::view('/home', 'home.index');
 Route::view('/agregar-receta', 'create.index');
 
+Route::get('/recepies', [RecepieController::class, 'index']);
+Route::get('/recepie/{id}', [RecepieController::class, 'show']);
 Route::post('/recepie', [RecepieController::class, 'store']);
-
+Route::delete('/recepie/{id}', [RecepieController::class, 'destroy']);
