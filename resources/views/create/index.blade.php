@@ -6,7 +6,8 @@
 <div class="content-form">
     <div class="form-container">
         <h2>Agrega una Receta</h2>
-        <form action="/recepie/create" method="POST">
+        <form action="/recepie" method="POST">
+            @csrf
             <label for="name">Nombre:</label>
             <input type="text" name="name" placeholder="Nombre de la receta" required>
             <br>
@@ -24,16 +25,16 @@
             </select>
             <br>
             <label for="descripcion">Descripción:</label>
-            <textarea name="descripcion" id="" cols="30" placeholder='Pequena descripción de la receta' rows="5"></textarea>
+            <textarea name="description" id="" cols="30" placeholder='Pequena descripción de la receta' rows="5"></textarea>
             <br>
             <label for="ingredientes">Ingredientes:</label>
-            <textarea name="ingredientes" required id="" cols="30" placeholder='Ingredientes de la receta' rows="5"></textarea>
+            <textarea name="ingredients" required id="" cols="30" placeholder='Ingredientes de la receta' rows="5"></textarea>
             <br>
             <label for="preparacion">Preparación:</label>
-            <textarea name="preparacion" id="" required cols="30" placeholder='Instrucciones para la preparación' rows="5"></textarea>
+            <textarea name="preparation" id="" required cols="30" placeholder='Instrucciones para la preparación' rows="5"></textarea>
             <br>
             <label for="email">Correo Electronico:</label>
-            <input type="email" required placeholder="correo electronico">
+            <input type="email" name='email' required placeholder="correo electronico">
             <br>
             <label for="acuerdo">
                 <input type="checkbox" required name="acuerdo" id="">
