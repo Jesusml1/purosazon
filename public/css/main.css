@@ -237,6 +237,19 @@
   align-items: center;
 }
 
+.rules-container {
+  background-color: #cf5c36;
+  color: white;
+  width: 95%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 3.42px 3.42px 0px #00000040;
+}
+.rules-container details summary {
+  margin-bottom: 1rem;
+}
+
 .form-container {
   background-color: #f4e3b2;
   display: flex;

@@ -7,6 +7,22 @@
   flex-direction: column;
   align-items: center;
 }
+
+.rules-container {
+  background-color: $btn-color;
+  color: white;
+  width: 95%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  @include border-effect;
+  details {
+    summary {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 .form-container {
   background-color: $secondary-color;
   display: flex;
