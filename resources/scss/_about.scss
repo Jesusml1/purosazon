@@ -1,0 +1,8 @@
+.about-container {
+  max-width: 600px;
+  background-color: $secondary-color;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  @include border-effect;
+}

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::view('/home', 'home.index');
 Route::view('/agregar-receta', 'create.index');
+Route::view('/about', 'about.index');
 
 Route::get('/recepies', [RecepieController::class, 'index']);
 Route::get('/recepie/{id}', [RecepieController::class, 'show']);
