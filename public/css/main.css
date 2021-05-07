@@ -337,7 +337,7 @@
   margin-bottom: 1rem;
 }
 .recepie__category {
-  color: #cf5c36;
+  color: #b44b27;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -345,6 +345,50 @@
 .recepie__name {
   font-size: 1.5rem;
   font-weight: 800;
+}
+
+.recepies-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.recepies-content h2 {
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.hover-link {
+  text-decoration: none;
+  color: #050517;
+  max-width: 600px;
+  min-width: auto;
+}
+.hover-link .card {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem;
+}
+
+.back-btn {
+  border: none;
+  padding: 1.25rem 2rem;
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #cf5c36;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0px 3.42px 3.42px 0px #00000040;
 }
 
 body {

@@ -5,10 +5,6 @@
 <div class='content'>
     <div class='recepie'>
         <a class='back-btn' href='{{ url()->previous() }}'>VOLVER</a>
-        @php
-        $format = '%Y-%m-%d %H:%M:%S';
-        $time = strptime($recepie->created_at, $format);
-        @endphp
         <div class='recepie__category'>
             {{ $recepie->category }},
             @php

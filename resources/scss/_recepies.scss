@@ -1,0 +1,38 @@
+.recepies-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  h2 {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+.card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.hover-link {
+  text-decoration: none;
+  color: $text-color;
+  max-width: 600px;
+  min-width: auto;
+  .card {
+    width: fit-content;
+    margin: 1rem;
+  }
+}
+.back-btn {
+  border: none;
+  padding: 1.25rem 2rem;
+  text-transform: uppercase;
+  width: fit-content;
+  color: white;
+  font-size: 1.2rem;
+  background-color: $btn-color;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  @include border-effect;
+}
