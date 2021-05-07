@@ -18,10 +18,10 @@
             <a href="/">INICIO</a>
         </li>
         <li>
-            <a href="/recepies">CATEGORIAS</a>
+            <a href="/categories">CATEGORIAS</a>
         </li>
         <li>
-            <a href="/agregar-receta">AGREGAR</a>
+            <a href="/add-recepie">AGREGAR</a>
         </li>
     </ul>
 

@@ -3,7 +3,6 @@
 @section('content')
 <div class="content">
     <div class='recepies-content'>
-        <a class='back-btn' href='{{ url()->previous() }}'>VOLVER</a>
         <h2>Todas las recetas</h2>
         @foreach($recepies as $recepie)
         <a href="/recepie/{{ $recepie->id }}" class='hover-link'>

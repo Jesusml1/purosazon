@@ -13,15 +13,12 @@ use App\Http\Controllers\RecepieController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::view('/home', 'home.index');
-Route::view('/agregar-receta', 'create.index');
+Route::view('/categories', 'categories.index');
+Route::view('/add-recepie', 'create.index');
 Route::view('/about', 'about.index');
 
-Route::get('/recepies', [RecepieController::class, 'index']);
+Route::get('/', [RecepieController::class, 'index']);
 Route::get('/recepie/{id}', [RecepieController::class, 'show']);
 Route::post('/recepie', [RecepieController::class, 'store']);
 Route::delete('/recepie/{id}', [RecepieController::class, 'destroy']);
