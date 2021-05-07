@@ -1,5 +1,5 @@
 @import "./resets", "./variables", "./mixins";
-@import "./navbar", "./home", "./footer", "./create";
+@import "./header", "./home", "./footer", "./create";
 @import "./recepie", "./recepies", "./about";
 
 body {
@@ -8,7 +8,7 @@ body {
 
 .wrapper {
   padding: 2.5rem;
-  @include for-tablet-portrait-up {
+  @include md {
     padding: 4.6875rem;
   }
 }

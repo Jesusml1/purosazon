@@ -25,11 +25,11 @@
         </div>
         <h3>Ingredientes</h3>
         <div class="recepie__ingredients">
-            {{ $recepie->ingredients }}
+            {!! nl2br(e($recepie->ingredients)) !!}
         </div>
         <h3>Preparación</h3>
         <div class="recepie__preparation">
-            {{ $recepie->preparation }}
+            {!! nl2br(e($recepie->preparation)) !!}
         </div>
     </div>
 </div>
