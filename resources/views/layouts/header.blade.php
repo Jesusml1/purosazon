@@ -26,9 +26,10 @@
     </ul>
 
     {{-- search and add button --}}
-    <form class="header__search" action="">
-        <input type="search" name="search" placeholder="Busca una receta...">
-        <button class="fa fa-search fa-lg fa-inverse"></button>
+    <form class="header__search" action="/search" method='get' role='query'>
+        {{-- @csrf --}}
+        <input type="text" name="query" placeholder="Busca una receta...">
+        <button class="fa fa-search fa-lg fa-inverse" type='submit'></button>
     </form>
 
 </div>

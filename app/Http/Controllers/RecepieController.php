@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 use App\Models\Recepie;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
+
+
 
 class RecepieController extends Controller
 {
@@ -22,6 +27,20 @@ class RecepieController extends Controller
         $recepie = Recepie::findOrFail($id);
         return view('recepies.show', [
             'recepie' => $recepie,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = request('query');
+        $results = DB::table('recepies')
+            ->select('*')
+            ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
+            ->get();
+        var_dump($query);
+        // $results = Recepie::whereRaw("description ILIKE '%?%'", [$query])->get();
+        return view('recepies.index', [
+            'recepies' => $results,
         ]);
     }
 
