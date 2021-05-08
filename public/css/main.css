@@ -65,12 +65,18 @@
     flex-direction: row;
     margin-right: 1rem;
     grid-area: links;
+    justify-content: center;
   }
 }
 .header__links li {
   list-style: none;
   margin-bottom: 0.75rem;
   margin-right: 1rem;
+}
+@media (min-width: 1024px) {
+  .header__links li {
+    margin-bottom: 0;
+  }
 }
 .header__links li a {
   text-decoration: none;
@@ -89,6 +95,7 @@
 @media (min-width: 1024px) {
   .header__search {
     grid-area: search;
+    margin-bottom: 0;
   }
 }
 .header__search input {

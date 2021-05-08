@@ -20,5 +20,6 @@ Route::view('/about', 'about.index');
 
 Route::get('/', [RecepieController::class, 'index']);
 Route::get('/recepie/{id}', [RecepieController::class, 'show']);
+Route::get('/search', [RecepieController::class, 'search']);
 Route::post('/recepie', [RecepieController::class, 'store']);
 Route::delete('/recepie/{id}', [RecepieController::class, 'destroy']);

@@ -52,12 +52,16 @@
       flex-direction: row;
       margin-right: 1rem;
       grid-area: links;
+      justify-content: center;
     }
 
     li {
       list-style: none;
       margin-bottom: 0.75rem;
       margin-right: 1rem;
+      @include lg {
+        margin-bottom: 0;
+      }
       a {
         text-decoration: none;
         color: $text-color;
@@ -76,6 +80,7 @@
     flex-direction: row;
     @include lg {
       grid-area: search;
+      margin-bottom: 0;
     }
     input {
       border: none;
