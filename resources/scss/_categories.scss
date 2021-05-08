@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 .content h2 {
   margin-bottom: 3.125rem;
@@ -40,11 +40,12 @@
     justify-items: start;
     padding: 1.5rem;
     border-radius: 0.5rem;
+
     @include border-effect;
     &__icon {
       grid-area: icon;
-      @include lg {
-      }
+      width: 50px;
+      height: 50px;
     }
     &__name {
       grid-area: name;
