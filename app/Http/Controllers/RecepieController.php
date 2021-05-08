@@ -29,7 +29,7 @@ class RecepieController extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    public function search()
     {
         $query = request('query');
         $category = request('category');
