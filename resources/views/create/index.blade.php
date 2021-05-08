@@ -71,6 +71,7 @@
             <br>
             <label for="category">Categoria:</label>
             <select name='category' required>
+                <option selected hidden>Seleciona una categoria</option>
                 <option value="Pollo">Pollo</option>
                 <option value="Carne">Carne</option>
                 <option value="Pasta">Pasta</option>
