@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Models\Recepie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
 

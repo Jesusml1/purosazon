@@ -1,0 +1,60 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+.content h2 {
+  margin-bottom: 3.125rem;
+}
+.categories {
+  display: grid;
+  grid-auto-columns: auto;
+  gap: 1rem;
+  width: 90%;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include lg {
+    gap: 1rem 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 800px;
+  }
+}
+
+.hover-link {
+  width: 100%;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .category {
+    background-color: $secondary-color;
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-areas: "icon name . arrow";
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    justify-items: start;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    @include border-effect;
+    &__icon {
+      grid-area: icon;
+      @include lg {
+      }
+    }
+    &__name {
+      grid-area: name;
+      font-weight: 500;
+      @include lg {
+        margin-bottom: 1rem;
+      }
+    }
+    &__arrow {
+      grid-area: arrow;
+    }
+  }
+}
