@@ -32,12 +32,19 @@ class RecepieController extends Controller
     public function search(Request $request)
     {
         $query = request('query');
-        $results = DB::table('recepies')
-            ->select('*')
-            ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
-            ->get();
-        var_dump($query);
-        // $results = Recepie::whereRaw("description ILIKE '%?%'", [$query])->get();
+        $category = request('category');
+
+        if (request('query')) {
+            $results = DB::table('recepies')
+                ->select('*')
+                ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
+                ->get();
+        } else if (request('category')) {
+            $results = DB::table('recepies')
+                ->select('*')
+                ->where(DB::raw('category'), '=', $category)
+                ->get();
+        }
         return view('recepies.index', [
             'recepies' => $results,
         ]);

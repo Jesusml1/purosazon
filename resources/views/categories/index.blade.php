@@ -7,7 +7,7 @@
     <h2 class='title'>Categorias</h2>
     <div class="categories">
         @foreach($categories as $category)
-        <a href="#" class='hover-link'>
+        <a href="/search?category={{ ucwords($category) }}" class='hover-link'>
             <div class='category'>
                 <img class="category__icon" src="./static/categories/{{ $category }}.svg" alt="{{ $category }}">
                 <div class="category__name">{{ ucwords($category) }}</div>

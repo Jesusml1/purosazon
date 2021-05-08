@@ -175,11 +175,6 @@
   grid-area: name;
   font-weight: 500;
 }
-@media (min-width: 1024px) {
-  .hover-link .category__name {
-    margin-bottom: 1rem;
-  }
-}
 .hover-link .category__arrow {
   grid-area: arrow;
 }
