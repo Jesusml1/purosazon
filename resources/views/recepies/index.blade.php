@@ -3,6 +3,9 @@
 @section('content')
 <div class="content">
     <div class='recepies-content'>
+        @unless($msg == 'Todas las recetas')
+        <a class='back-btn' href="{{ url()->previous() }}">volver</a>
+        @endunless
         <h2>{{ $msg }}</h2>
         @foreach($recepies as $recepie)
         <a href="/recepie/{{ $recepie->id }}" class='hover-link'>

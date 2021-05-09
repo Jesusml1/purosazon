@@ -1,9 +1,10 @@
 .recepie {
   background-color: $secondary-color;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 2rem;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
   border-radius: 0.5rem;
   @include border-effect;
 
