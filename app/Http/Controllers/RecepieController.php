@@ -42,6 +42,7 @@ class RecepieController extends Controller
                 ->select('*')
                 ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
                 ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
+                ->latest()
                 ->get();
             $msg = 'Resultados para: ' . $query;
             $type = 'search';
@@ -49,6 +50,7 @@ class RecepieController extends Controller
             $results = DB::table('recepies')
                 ->select('*')
                 ->where(DB::raw('category'), '=', $category)
+                ->latest()
                 ->get();
             $msg = 'Categoria: ' . $category;
             $type = 'category';
