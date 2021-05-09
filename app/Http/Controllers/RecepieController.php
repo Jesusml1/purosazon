@@ -75,7 +75,7 @@ class RecepieController extends Controller
 
         $recepie->save();
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function destroy($id)
