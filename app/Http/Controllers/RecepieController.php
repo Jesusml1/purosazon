@@ -39,14 +39,17 @@ class RecepieController extends Controller
                 ->select('*')
                 ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
                 ->get();
+            $msg = 'Resultados para: ' . $query;
         } else if (request('category')) {
             $results = DB::table('recepies')
                 ->select('*')
                 ->where(DB::raw('category'), '=', $category)
                 ->get();
+            $msg = 'Categoria: ' . $category;
         }
         return view('recepies.index', [
             'recepies' => $results,
+            'msg' => $msg,
         ]);
     }
 

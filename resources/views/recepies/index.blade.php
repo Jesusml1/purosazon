@@ -3,7 +3,7 @@
 @section('content')
 <div class="content">
     <div class='recepies-content'>
-        <h2>Todas las recetas</h2>
+        <h2>{{ $msg }}</h2>
         @foreach($recepies as $recepie)
         <a href="/recepie/{{ $recepie->id }}" class='hover-link'>
             <div class='recepie card'>
