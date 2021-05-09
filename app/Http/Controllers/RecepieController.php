@@ -39,6 +39,7 @@ class RecepieController extends Controller
             $results = DB::table('recepies')
                 ->select('*')
                 ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
+                ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
                 ->get();
             $msg = 'Resultados para: ' . $query;
         } else if (request('category')) {
