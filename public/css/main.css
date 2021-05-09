@@ -114,11 +114,15 @@
   border-radius: 0.5rem;
   padding: 1.1rem;
 }
+.header__search button:hover {
+  background-color: #b44b27;
+  cursor: pointer;
+}
 
 .content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   padding: 2rem 0;
 }
@@ -336,7 +340,13 @@
 .recepies-content {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   padding: 1rem;
+}
+@media (min-width: 1024px) {
+  .recepies-content {
+    min-width: 600px;
+  }
 }
 .recepies-content h2 {
   padding-top: 1rem;

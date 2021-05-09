@@ -7,6 +7,11 @@
         <a class='back-btn' href="{{ url()->previous() }}">volver</a>
         @endunless
         <h2>{{ $msg }}</h2>
+        @if( $type == 'search' && $recepies->isEmpty())
+        <h3>No hay resultados</h3>
+        @elseif($type == 'category' && $recepies->isEmpty())
+        <h3>Aun no hay ninguna, agrega una!</h3>
+        @endif
         @foreach($recepies as $recepie)
         <a href="/recepie/{{ $recepie->id }}" class='hover-link'>
             <div class='recepie card'>

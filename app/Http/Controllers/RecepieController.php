@@ -16,9 +16,11 @@ class RecepieController extends Controller
     {
         $recepies = Recepie::latest()->get();
         $msg = 'Todas las recetas';
+        $type = 'home';
         return view('recepies.index', [
             'recepies' => $recepies,
             'msg' => $msg,
+            'type' => $type,
         ]);
     }
 
@@ -42,16 +44,19 @@ class RecepieController extends Controller
                 ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
                 ->get();
             $msg = 'Resultados para: ' . $query;
+            $type = 'search';
         } else if (request('category')) {
             $results = DB::table('recepies')
                 ->select('*')
                 ->where(DB::raw('category'), '=', $category)
                 ->get();
             $msg = 'Categoria: ' . $category;
+            $type = 'category';
         }
         return view('recepies.index', [
             'recepies' => $results,
             'msg' => $msg,
+            'type' => $type,
         ]);
     }
 

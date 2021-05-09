@@ -1,7 +1,11 @@
 .recepies-content {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   padding: 1rem;
+  @include lg {
+    min-width: 600px;
+  }
 
   h2 {
     padding-top: 1rem;

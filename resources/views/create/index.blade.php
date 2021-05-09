@@ -21,7 +21,7 @@
                 </p>
                 <br>
                 <p>
-                    La DESCRIPCION es opcional, pero sirve para proporcionar
+                    La DESCRIPCIÓN es opcional, pero sirve para proporcionar
                     informacion acerca de la duracion, dificultad u otros
                     detalles referente a la receta (no incluir historias).
                 </p>
@@ -44,8 +44,8 @@
                 </p>
                 <br>
                 <p>
-                    En PREPARACION se desean instrucciones secuenciales y
-                    claras en cuanto a la elaboracion de la receta. Se
+                    En PREPARACIÓN se desean instrucciones secuenciales y
+                    claras en cuanto a la elaboración de la receta. Se
                     recomienda ser lo mas conciso posible.
                 </p>
                 <br>

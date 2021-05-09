@@ -96,6 +96,10 @@
       margin-left: 0.5rem;
       @include border-effect;
       padding: 1.1rem;
+      &:hover {
+        background-color: $btn-color-variant;
+        cursor: pointer;
+      }
     }
   }
 }
