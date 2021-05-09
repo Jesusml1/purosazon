@@ -1,5 +1,11 @@
 {
+    "name": "purosazon",
+    "description": "Spanish recepie website",
+    "version": "1.0.0",
     "private": true,
+    "engines": {
+        "yarn": "1.x"
+    },
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
