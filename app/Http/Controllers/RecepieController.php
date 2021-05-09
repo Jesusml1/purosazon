@@ -15,9 +15,10 @@ class RecepieController extends Controller
     public function index()
     {
         $recepies = Recepie::latest()->get();
-
+        $msg = 'Todas las recetas';
         return view('recepies.index', [
             'recepies' => $recepies,
+            'msg' => $msg,
         ]);
     }
 
