@@ -25,6 +25,9 @@
   .card {
     width: fit-content;
     margin: 1rem;
+    @include md {
+      min-width: 600px;
+    }
   }
 }
 .back-btn {

@@ -370,6 +370,11 @@
   width: fit-content;
   margin: 1rem;
 }
+@media (min-width: 768px) {
+  .hover-link .card {
+    min-width: 600px;
+  }
+}
 
 .back-btn {
   border: none;
