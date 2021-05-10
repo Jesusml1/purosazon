@@ -2,6 +2,6 @@
 
 Puro sazon is a minimalist website for recepies written in laravel.
 
-<p style='text-align: center;'>
+<p align="center" >
     <img src='./purosazon-min.png'>
 </p>
