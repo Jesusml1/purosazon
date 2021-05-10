@@ -14,16 +14,9 @@ use App\Http\Controllers\RecepieController;
 */
 
 
-Route::get('/categories', function () {
-    $categories = [
-        'arroz', 'carne', 'ensalada', 'pasta',
-        'pescado', 'pizza', 'pollo', 'postre', 'otros'
-    ];
-
-    return view('categories.index', ['categories' => $categories]);
-});
 Route::view('/add-recepie', 'create.index');
 Route::view('/about', 'about.index');
+Route::get('/categories', [RecepieController::class, 'category']);
 
 Route::get('/', [RecepieController::class, 'index']);
 Route::get('/recepie/{id}', [RecepieController::class, 'show']);

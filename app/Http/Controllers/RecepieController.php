@@ -80,6 +80,16 @@ class RecepieController extends Controller
         return redirect('/');
     }
 
+    public function category()
+    {
+        $categories = [
+            'arroz', 'carne', 'ensalada', 'pasta',
+            'pescado', 'pizza', 'pollo', 'postre', 'otros'
+        ];
+
+        return view('categories.index', ['categories' => $categories]);
+    }
+
     public function destroy($id)
     {
         $recepie = Recepie::findOrFail($id);
