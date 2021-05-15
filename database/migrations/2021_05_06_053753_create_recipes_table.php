@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use phpDocumentor\Reflection\Types\Nullable;
 
-class CreateRecepiesTable extends Migration
+class CreateRecipesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateRecepiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('recepies', function (Blueprint $table) {
+        Schema::create('recipes', function (Blueprint $table) {
             $table->uuid('id');
             $table->timestamps();
             $table->string('name');
@@ -34,6 +34,6 @@ class CreateRecepiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recepies');
+        Schema::dropIfExists('recipes');
     }
 }

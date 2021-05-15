@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
-use App\Models\Recepie;
+use App\Models\Recipe;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
 
-class RecepieController extends Controller
+class RecipeController extends Controller
 {
     public function index()
     {
-        $recepies = Recepie::latest()->get();
+        $recipes = recipe::latest()->get();
         $msg = 'Todas las recetas';
         $type = 'home';
-        return view('recepies.index', [
-            'recepies' => $recepies,
+        return view('recipes.index', [
+            'recipes' => $recipes,
             'msg' => $msg,
             'type' => $type,
         ]);
@@ -26,9 +26,9 @@ class RecepieController extends Controller
 
     public function show($id)
     {
-        $recepie = Recepie::findOrFail($id);
-        return view('recepies.show', [
-            'recepie' => $recepie,
+        $recipe = recipe::findOrFail($id);
+        return view('recipes.show', [
+            'recipe' => $recipe,
         ]);
     }
 
@@ -38,7 +38,7 @@ class RecepieController extends Controller
         $category = request('category');
 
         if (request('query')) {
-            $results = DB::table('recepies')
+            $results = DB::table('recipes')
                 ->select('*')
                 ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
                 ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
@@ -47,7 +47,7 @@ class RecepieController extends Controller
             $msg = 'Resultados para: ' . $query;
             $type = 'search';
         } else if (request('category')) {
-            $results = DB::table('recepies')
+            $results = DB::table('recipes')
                 ->select('*')
                 ->where(DB::raw('category'), '=', $category)
                 ->latest()
@@ -55,8 +55,8 @@ class RecepieController extends Controller
             $msg = 'Categoria: ' . $category;
             $type = 'category';
         }
-        return view('recepies.index', [
-            'recepies' => $results,
+        return view('recipes.index', [
+            'recipes' => $results,
             'msg' => $msg,
             'type' => $type,
         ]);
@@ -64,18 +64,18 @@ class RecepieController extends Controller
 
     public function store()
     {
-        $recepie = new Recepie();
+        $recipe = new recipe();
 
-        $recepie->id = Str::orderedUuid();
-        $recepie->name = request('name');
-        $recepie->category = request('category');
-        $recepie->description = request('description');
-        $recepie->ingredients = request('ingredients');
-        $recepie->preparation = request('preparation');
-        $recepie->email = request('email');
-        $recepie->is_suspended = false;
+        $recipe->id = Str::orderedUuid();
+        $recipe->name = request('name');
+        $recipe->category = request('category');
+        $recipe->description = request('description');
+        $recipe->ingredients = request('ingredients');
+        $recipe->preparation = request('preparation');
+        $recipe->email = request('email');
+        $recipe->is_suspended = false;
 
-        $recepie->save();
+        $recipe->save();
 
         return redirect('/');
     }
@@ -92,8 +92,8 @@ class RecepieController extends Controller
 
     public function destroy($id)
     {
-        $recepie = Recepie::findOrFail($id);
-        $recepie->delete();
+        $recipe = recipe::findOrFail($id);
+        $recipe->delete();
         return redirect('/home');
     }
 }

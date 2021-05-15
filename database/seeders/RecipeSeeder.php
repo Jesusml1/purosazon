@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 use Illuminate\Support\Carbon;
 
-class RecepieSeeder extends Seeder
+class RecipeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -34,7 +34,7 @@ class RecepieSeeder extends Seeder
                 ];
             $randomCategory = array_rand($categories, 1);
 
-            DB::table('recepies')->insert([
+            DB::table('recipes')->insert([
                 'id' => Str::orderedUuid(),
                 'name' =>  $faker->words(5, true),
                 'category' => $categories[$randomCategory],

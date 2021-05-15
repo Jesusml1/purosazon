@@ -64,7 +64,7 @@
 
     <div class="form-container">
         <h2>Agrega una Receta</h2>
-        <form action="/recepie" method="POST">
+        <form action="/recipe" method="POST">
             @csrf
             <label for="name">Nombre:</label>
             <input type="text" name="name" placeholder="Nombre de la receta" required>

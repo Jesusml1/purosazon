@@ -21,7 +21,7 @@
             <a href="/categories">CATEGORIAS</a>
         </li>
         <li>
-            <a href="/add-recepie">AGREGAR</a>
+            <a href="/add-recipe">AGREGAR</a>
         </li>
     </ul>
 

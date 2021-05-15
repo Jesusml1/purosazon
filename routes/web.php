@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RecepieController;
+use App\Http\Controllers\RecipeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +14,12 @@ use App\Http\Controllers\RecepieController;
 */
 
 
-Route::view('/add-recepie', 'create.index');
+Route::view('/add-recipe', 'create.index');
 Route::view('/about', 'about.index');
-Route::get('/categories', [RecepieController::class, 'category']);
+Route::get('/categories', [recipeController::class, 'category']);
 
-Route::get('/', [RecepieController::class, 'index']);
-Route::get('/recepie/{id}', [RecepieController::class, 'show']);
-Route::get('/search', [RecepieController::class, 'search']);
-Route::post('/recepie', [RecepieController::class, 'store']);
-Route::delete('/recepie/{id}', [RecepieController::class, 'destroy']);
+Route::get('/', [recipeController::class, 'index']);
+Route::get('/recipe/{id}', [recipeController::class, 'show']);
+Route::get('/search', [recipeController::class, 'search']);
+Route::post('/recipe', [recipeController::class, 'store']);
+Route::delete('/recipe/{id}', [recipeController::class, 'destroy']);

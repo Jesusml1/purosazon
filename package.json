@@ -1,6 +1,6 @@
 {
     "name": "purosazon",
-    "description": "Spanish recepie website",
+    "description": "Spanish recipes website",
     "version": "1.0.0",
     "private": true,
     "engines": {
