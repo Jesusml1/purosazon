@@ -1,23 +1,25 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
-<div class="content">
-    <div class="about-container">
-        <h2>
-            SOBRE ESTE SITIO
-        </h2>
-        <p>
-            Puro sazón es un sitio web para recetas
-            en español, minimalista, en el que cualquiera
-            que lo desee puede incluir su propia receta.
-        </p>
-        <br>
-        <p>
-            Haz click en el boton de AGREGAR y lee las
-            normas para agregar una receta en el formato adecuado.
-        </p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Sobre esta pagina
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Que es Puro Sazon
+            </h5>
+            <p class="card-text">
+                Puro sazón es un sitio web para recetas
+                en español, minimalista, en el que cualquiera
+                que lo desee puede incluir su propia receta.
+            </p>
+            <a href="/register" class="btn btn-primary">Registrate</a>
+        </div>
     </div>
 </div>
+
 
 @endsection

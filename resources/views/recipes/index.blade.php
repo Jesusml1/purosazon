@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="content">
@@ -13,28 +13,30 @@
         <h3>Aun no hay ninguna, agrega una!</h3>
         @endif
         @foreach($recipes as $recipe)
-        <a href="/recipe/{{ $recipe->id }}" class='hover-link'>
-            <div class='recipe card'>
-                <div class='recipe__category'>
-                    {{ $recipe->category }},
-                    @php
-                    $format = '%Y-%m-%d %H:%M:%S';
-                    $time = strtotime($recipe->created_at);
-                    echo date('d', $time);
-                    echo '/';
-                    echo date('m', $time);
-                    echo '/';
-                    echo date('Y', $time);
-                    @endphp
-                </div>
-                <div class="recipe__name">
+        <div class="card mb-4">
+            <h5 class="card-header">
+                {{ $recipe->category }},
+                @php
+                $format = '%Y-%m-%d %H:%M:%S';
+                $time = strtotime($recipe->created_at);
+                echo date('d', $time);
+                echo '/';
+                echo date('m', $time);
+                echo '/';
+                echo date('Y', $time);
+                @endphp
+            </h5>
+            <div class="card-body">
+                <h5 class="card-title">
                     {{ $recipe->name }}
-                </div>
-                <div class='recipe__description'>
+                </h5>
+                <p class="card-text">
                     {{ $recipe->description }}
-                </div>
+                </p>
+                <a href="/recipe/{{ $recipe->id }}" class="btn btn-primary float-right">Ver</a>
             </div>
-        </a>
+        </div>
+
         @endforeach
     </div>
 </div>

@@ -1,19 +1,25 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
 
-<div class="content">
+<div class="container">
     <h2 class='title'>Categorias</h2>
-    <div class="categories">
+    <div class="row hidden-md-up">
         @foreach($categories as $category)
-        <a href="/search?category={{ ucwords($category) }}" class='hover-link'>
-            <div class='category'>
-                <img class="category__icon" src="./static/categories/{{ $category }}.svg" alt="{{ $category }}">
-                <div class="category__name">{{ ucwords($category) }}</div>
-                <img class="category__arrow" src="./static/arrow.svg" alt="ver">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-block p-4 ">
+                    <h4 class="card-title">{{ ucwords($category) }}</h4>
+                    <div class="d-flex justify-content-between">
+                        <img class="category__icon" src="./static/categories/{{ $category }}.svg" alt="{{ $category }}">
+                        <a href="/search?category={{ ucwords($category) }}" class='btn btn-primary px-3 py-2'>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </a>
+        </div>
         @endforeach
     </div>
 </div>
