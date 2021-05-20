@@ -67,15 +67,15 @@
     <div class="card">
         <h5 class="card-header">Agrega una receta</h5>
         <div class="card-body">
-            <form>
+            <form action="/recipe" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nombre de la receta</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la receta">
+                    <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la receta">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Categoria</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control" name="category" id="exampleFormControlSelect1">
                         <option selected hidden>Seleciona una categoria</option>
                         <option value="Pollo">Pollo</option>
                         <option value="Carne">Carne</option>
