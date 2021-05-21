@@ -9,7 +9,7 @@
 </div>
 @endif
 <div class="container min-vh-100">
-    <h2>Tus recetas</h2>
+    <h2 class="">Tus recetas</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
             @if(count($recipes) > 0)
@@ -19,7 +19,6 @@
                 <h6 class="card-header">
                     {{ $recipe->category }},
                     @php
-                    $format = '%Y-%m-%d %H:%M:%S';
                     $time = strtotime($recipe->created_at);
                     echo date('d', $time);
                     echo '/';

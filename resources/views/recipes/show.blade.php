@@ -9,25 +9,28 @@
 </div>
 @endif
 <div class="container mb-4">
-    <a class='btn btn-primary' href='{{ url()->previous() }}'>Volver</a>
+    <a class='btn btn-secondary' href='{{ url()->previous() }}'>Volver</a>
 </div>
 <div class="container">
     <div class="card">
         <div class="card-header">
-            {{ $recipe->category }},
-            @php
-            $time = strtotime($recipe->created_at);
-            echo date('d', $time);
-            echo '/';
-            echo date('m', $time);
-            echo '/';
-            echo date('Y', $time);
-            @endphp
+            {{ $recipe->category }}
         </div>
         <div class="card-body">
-            <h2 class="recipe__name">
+            <h1 class="recipe__name">
                 {{ $recipe->name }}
-            </h2>
+            </h1>
+            <p class='text-secondary'>
+                @php
+                $time = strtotime($recipe->created_at);
+                echo date('d', $time);
+                echo '/';
+                echo date('m', $time);
+                echo '/';
+                echo date('Y', $time);
+                @endphp
+                , pubilcado por {{ $recipe->user->name }}
+            </p>
             <div class='recipe__description'>
                 {{ $recipe->description }}
             </div>
@@ -38,9 +41,6 @@
             <h4>Preparación</h4>
             <div class="recipe__preparation">
                 {!! nl2br(e($recipe->preparation)) !!}
-            </div>
-            <div>
-                Publicado por: {{ $recipe->user->name }}
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <h2 class='title'>Categorias</h2>
+    <h2 class='title mb-4'>Categorias</h2>
     <div class="row hidden-md-up">
         @foreach($categories as $category)
         <div class="col-md-4 mb-4">
