@@ -84,7 +84,10 @@ class RecipeController extends Controller
 
         $recipe->save();
 
-        return redirect('/');
+        return redirect('/')->with([
+            'message' => "Receta agregada",
+            'alert' => 'alert-success'
+        ]);
     }
 
     public function update($id)
@@ -96,7 +99,12 @@ class RecipeController extends Controller
         ];
 
         if (auth()->user()->id !== $recipe->user_id) {
-            return redirect()->back()->with(['message' => "Fallo de autenticación", 'alert' => 'alert-danger']);
+            return redirect()
+                ->back()
+                ->with([
+                    'message' => "Fallo de autenticación",
+                    'alert' => 'alert-danger'
+                ]);
         }
         return view('create.edit', [
             'recipe' => $recipe,

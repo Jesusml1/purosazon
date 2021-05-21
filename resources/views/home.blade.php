@@ -9,26 +9,14 @@
 </div>
 @endif
 <div class="container min-vh-100">
+    <h2>Tus recetas</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
             @if(count($recipes) > 0)
-            <div class="card">
-                <div class="card-header">{{ __('Tus recetas') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
 
             @foreach($recipes as $recipe)
             <div class="card mb-4">
-                <h5 class="card-header">
+                <h6 class="card-header">
                     {{ $recipe->category }},
                     @php
                     $format = '%Y-%m-%d %H:%M:%S';
@@ -39,11 +27,11 @@
                     echo '/';
                     echo date('Y', $time);
                     @endphp
-                </h5>
+                </h6>
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h4 class="card-title">
                         {{ $recipe->name }}
-                    </h5>
+                    </h4>
                     <p class="card-text">
                         {{ $recipe->description }}
                     </p>
