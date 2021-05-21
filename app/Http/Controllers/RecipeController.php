@@ -45,17 +45,21 @@ class RecipeController extends Controller
 
         if (request('query')) {
             $results = DB::table('recipes')
-                ->select('*')
-                ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
-                ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
+                ->leftJoin('users', 'recipes.user_id', '=', 'users.id')
+                ->select('recipes.*', DB::raw('users.name as username'))
+                ->where(DB::raw('recipes.description'), 'ilike', '%' . strtolower($query) . '%')
+                ->orWhere(DB::raw('recipes.name'), 'ilike', '%' . strtolower($query) . '%')
                 ->latest()
                 ->get();
+
+            error_log($results);
             $msg = 'Resultados para: ' . $query;
             $type = 'search';
         } else if (request('category')) {
             $results = DB::table('recipes')
-                ->select('*')
-                ->where(DB::raw('category'), '=', $category)
+                ->leftJoin('users', 'recipes.user_id', '=', 'users.id')
+                ->select('recipes.*', DB::raw('users.name as username'))
+                ->where(DB::raw('recipes.category'), '=', $category)
                 ->latest()
                 ->get();
             $msg = 'Categoria: ' . $category;

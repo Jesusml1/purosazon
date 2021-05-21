@@ -46,7 +46,12 @@
                         echo '/';
                         echo date('Y', $time);
                         @endphp
+                        @if($type == 'search' || $type == 'category')
+                        , publicado por {{ $recipe->username }}
+                        @else
                         , publicado por {{ $recipe->user->name }}
+                        @endif
+
                     </p>
                     <p class="card-text">
                         {{ $recipe->description }}
