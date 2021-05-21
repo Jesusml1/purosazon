@@ -94,6 +94,10 @@ class RecipeController extends Controller
             'Arroz', 'Carne', 'Ensalada', 'Pasta',
             'Pescado', 'Pizza', 'Pollo', 'Postre', 'Otros'
         ];
+
+        if (auth()->user()->id !== $recipe->user_id) {
+            return redirect()->back()->with(['message' => "Fallo de autenticación", 'alert' => 'alert-danger']);
+        }
         return view('create.edit', [
             'recipe' => $recipe,
             'categories' => $categories,

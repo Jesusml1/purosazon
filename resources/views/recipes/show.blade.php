@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+<div class="container">
+    <div class="alert {{session('alert') ?? 'alert-info'}}">
+        {{ session('message') }}
+    </div>
+</div>
+@endif
 <div class="container mb-4">
     <a class='btn btn-primary' href='{{ url()->previous() }}'>Volver</a>
 </div>
@@ -38,7 +45,8 @@
             </div>
         </div>
     </div>
-    @auth
+    @unless(!Auth::check())
+    @if(Auth::user()->id == $recipe->user_id)
     <div class="d-flex mt-4">
         <a class="btn btn-secondary mr-4" href="/edit-recipe/{!! $recipe->id !!}">Editar</a>
         <form action="/recipe/{{ $recipe->id }}" method="post">
@@ -47,7 +55,10 @@
             <button type="submit" class="btn btn-outline-danger">Eliminar receta</button>
         </form>
     </div>
-    @endauth
+    @endif
+    @endunless
 </div>
+
+
 
 @endsection

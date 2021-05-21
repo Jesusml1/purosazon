@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+<div class="container">
+    <div class="alert {{session('alert') ?? 'alert-info'}}">
+        {{ session('message') }}
+    </div>
+</div>
+@endif
 <div class="container min-vh-100">
     <div class="row justify-content-center">
         <div class="col-md-8">
