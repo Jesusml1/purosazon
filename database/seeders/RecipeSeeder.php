@@ -36,12 +36,12 @@ class RecipeSeeder extends Seeder
 
             DB::table('recipes')->insert([
                 'id' => Str::orderedUuid(),
+                'user_id' => '02b100c5-9bc4-4540-9ec9-9ac22524f546',
                 'name' =>  $faker->words(5, true),
                 'category' => $categories[$randomCategory],
                 'description' => $faker->words(10, true),
                 'ingredients' => $faker->words(20, true),
                 'preparation' => $faker->words(50, true),
-                'email' => $faker->unique()->safeEmail(),
                 'is_suspended' => false,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

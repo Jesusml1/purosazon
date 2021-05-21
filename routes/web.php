@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RecipeController;
+
 // use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +17,20 @@ use App\Http\Controllers\RecipeController;
 */
 
 
-Route::view('/add-recipe', 'create.index')->name('add-recipe');
-Route::view('/about', 'about.index');
-Route::get('/categories', [recipeController::class, 'category']);
+Route::view('/add-recipe', 'create.index')
+    ->name('add-recipe')
+    ->middleware('auth');
 
-Route::get('/', [recipeController::class, 'index']);
-Route::get('/recipe/{id}', [recipeController::class, 'show']);
-Route::get('/search', [recipeController::class, 'search']);
-Route::post('/recipe', [recipeController::class, 'store']);
-Route::delete('/recipe/{id}', [recipeController::class, 'destroy']);
+Route::get('/edit-recipe/{id}', [RecipeController::class, 'update']);
+Route::view('/about', 'about.index');
+Route::get('/categories', [RecipeController::class, 'category']);
+
+Route::get('/', [RecipeController::class, 'index']);
+Route::get('/recipe/{id}', [RecipeController::class, 'show']);
+Route::get('/search', [RecipeController::class, 'search']);
+Route::post('/recipe', [RecipeController::class, 'store']);
+Route::put('/recipe/{id}', [RecipeController::class, 'edit']);
+Route::delete('/recipe/{id}', [RecipeController::class, 'destroy']);
 
 Auth::routes();
 

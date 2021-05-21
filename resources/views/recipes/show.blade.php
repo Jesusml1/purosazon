@@ -33,8 +33,21 @@
             <div class="recipe__preparation">
                 {!! nl2br(e($recipe->preparation)) !!}
             </div>
+            <div>
+                Publicado por: {{ $recipe->user->name }}
+            </div>
         </div>
     </div>
+    @auth
+    <div class="d-flex mt-4">
+        <a class="btn btn-secondary mr-4" href="/edit-recipe/{!! $recipe->id !!}">Editar</a>
+        <form action="/recipe/{{ $recipe->id }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-outline-danger">Eliminar receta</button>
+        </form>
+    </div>
+    @endauth
 </div>
 
 @endsection

@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth', ['except' => ['index', 'show', 'categories.index']]);
+    // }
+
     public function index()
     {
         $recipes = recipe::latest()->get();
@@ -31,6 +36,7 @@ class RecipeController extends Controller
             'recipe' => $recipe,
         ]);
     }
+
 
     public function search()
     {
@@ -62,21 +68,49 @@ class RecipeController extends Controller
         ]);
     }
 
+
     public function store()
     {
         $recipe = new recipe();
 
         $recipe->id = Str::orderedUuid();
+        $recipe->user_id = auth()->user()->id;
         $recipe->name = request('name');
         $recipe->category = request('category');
         $recipe->description = request('description');
         $recipe->ingredients = request('ingredients');
         $recipe->preparation = request('preparation');
-        $recipe->email = request('email');
         $recipe->is_suspended = false;
 
         $recipe->save();
 
+        return redirect('/');
+    }
+
+    public function update($id)
+    {
+        $recipe = recipe::findOrFail($id);
+        $categories = [
+            'Arroz', 'Carne', 'Ensalada', 'Pasta',
+            'Pescado', 'Pizza', 'Pollo', 'Postre', 'Otros'
+        ];
+        return view('create.edit', [
+            'recipe' => $recipe,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $recipe = recipe::findOrFail($id);
+
+        $recipe->name = request('name');
+        $recipe->category = request('category');
+        $recipe->description = request('description');
+        $recipe->ingredients = request('ingredients');
+        $recipe->preparation = request('preparation');
+
+        $recipe->save();
         return redirect('/');
     }
 

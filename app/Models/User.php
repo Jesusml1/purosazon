@@ -47,6 +47,6 @@ class User extends Authenticatable
     // Model relation
     public function recipes()
     {
-        return $this->hasMany('App\Recipe');
+        return $this->hasMany(Recipe::class);
     }
 }
