@@ -16,7 +16,6 @@
         <div class="card-header">
             {{ $recipe->category }},
             @php
-            $format = '%Y-%m-%d %H:%M:%S';
             $time = strtotime($recipe->created_at);
             echo date('d', $time);
             echo '/';
