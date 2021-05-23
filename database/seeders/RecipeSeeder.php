@@ -36,7 +36,7 @@ class RecipeSeeder extends Seeder
 
             DB::table('recipes')->insert([
                 'id' => Str::orderedUuid(),
-                'user_id' => '02b100c5-9bc4-4540-9ec9-9ac22524f546',
+                'user_id' => 'df7579e9-5095-41ab-8ba5-d7f902774f6c',
                 'name' =>  $faker->words(5, true),
                 'category' => $categories[$randomCategory],
                 'description' => $faker->words(20, true),
