@@ -12,7 +12,7 @@
 </div>
 @endif
 
-<div class="container">
+<div class="container min-vh-100">
     <div class="mb-4">
         @unless($msg == 'Todas las recetas')
         <a class='btn btn-secondary mb-4' href="{{ url()->previous() }}">Volver</a>

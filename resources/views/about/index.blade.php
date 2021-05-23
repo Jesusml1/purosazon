@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container">
-    <div class="card">
+<div class="container min-vh-100 mb-4">
+    <div class="card ">
         <div class="card-header">
             Sobre esta pagina
         </div>

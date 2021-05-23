@@ -1,19 +1,19 @@
 .footer {
   width: 100%;
   height: auto;
-  background-color: $text-color;
+  background-color: rgb(211, 211, 211);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: white;
+  color: black;
   &__text {
-    margin: 2rem;
+    margin: 1rem;
   }
   &__about {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-decoration: underline;
     font-size: 0.8rem;
-    color: white;
+    color: black;
   }
 }

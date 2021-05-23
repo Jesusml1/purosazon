@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container min-vh-100">
     <h2 class='title mb-4'>Categorias</h2>
     <div class="row hidden-md-up">
         @foreach($categories as $category)

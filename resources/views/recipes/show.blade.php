@@ -37,10 +37,12 @@
             <div class='recipe__description'>
                 {{ $recipe->description }}
             </div>
+            <br>
             <h4>Ingredientes</h4>
             <div class="recipe__ingredients">
                 {!! nl2br(e($recipe->ingredients)) !!}
             </div>
+            <br>
             <h4>Preparación</h4>
             <div class="recipe__preparation">
                 {!! nl2br(e($recipe->preparation)) !!}
