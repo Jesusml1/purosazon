@@ -27,6 +27,7 @@ Route::get('/categories', [RecipeController::class, 'category']);
 
 Route::get('/', [RecipeController::class, 'index']);
 Route::get('/recipe/{id}', [RecipeController::class, 'show']);
+Route::get('/recipe/{id}/pdf', [RecipeController::class, 'createPDF']);
 Route::get('/search', [RecipeController::class, 'search']);
 Route::post('/recipe', [RecipeController::class, 'store']);
 Route::put('/recipe/{id}', [RecipeController::class, 'edit']);
