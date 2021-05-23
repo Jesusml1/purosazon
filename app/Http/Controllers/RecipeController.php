@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth', ['except' => ['index', 'show', 'categories.index']]);
+    // }
+
     public function index()
     {
         $recipes = recipe::latest()->get();
@@ -32,6 +37,7 @@ class RecipeController extends Controller
         ]);
     }
 
+
     public function search()
     {
         $query = request('query');
@@ -39,17 +45,21 @@ class RecipeController extends Controller
 
         if (request('query')) {
             $results = DB::table('recipes')
-                ->select('*')
-                ->where(DB::raw('description'), 'ilike', '%' . strtolower($query) . '%')
-                ->orWhere(DB::raw('name'), 'ilike', '%' . strtolower($query) . '%')
+                ->leftJoin('users', 'recipes.user_id', '=', 'users.id')
+                ->select('recipes.*', DB::raw('users.name as username'))
+                ->where(DB::raw('recipes.description'), 'ilike', '%' . strtolower($query) . '%')
+                ->orWhere(DB::raw('recipes.name'), 'ilike', '%' . strtolower($query) . '%')
                 ->latest()
                 ->get();
+
+            error_log($results);
             $msg = 'Resultados para: ' . $query;
             $type = 'search';
         } else if (request('category')) {
             $results = DB::table('recipes')
-                ->select('*')
-                ->where(DB::raw('category'), '=', $category)
+                ->leftJoin('users', 'recipes.user_id', '=', 'users.id')
+                ->select('recipes.*', DB::raw('users.name as username'))
+                ->where(DB::raw('recipes.category'), '=', $category)
                 ->latest()
                 ->get();
             $msg = 'Categoria: ' . $category;
@@ -62,21 +72,61 @@ class RecipeController extends Controller
         ]);
     }
 
+
     public function store()
     {
         $recipe = new recipe();
 
         $recipe->id = Str::orderedUuid();
+        $recipe->user_id = auth()->user()->id;
         $recipe->name = request('name');
         $recipe->category = request('category');
         $recipe->description = request('description');
         $recipe->ingredients = request('ingredients');
         $recipe->preparation = request('preparation');
-        $recipe->email = request('email');
         $recipe->is_suspended = false;
 
         $recipe->save();
 
+        return redirect('/')->with([
+            'message' => "Receta agregada",
+            'alert' => 'alert-success'
+        ]);
+    }
+
+    public function update($id)
+    {
+        $recipe = recipe::findOrFail($id);
+        $categories = [
+            'Arroz', 'Carne', 'Ensalada', 'Pasta',
+            'Pescado', 'Pizza', 'Pollo', 'Postre', 'Otros'
+        ];
+
+        if (auth()->user()->id !== $recipe->user_id) {
+            return redirect()
+                ->back()
+                ->with([
+                    'message' => "Fallo de autenticación",
+                    'alert' => 'alert-danger'
+                ]);
+        }
+        return view('create.edit', [
+            'recipe' => $recipe,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $recipe = recipe::findOrFail($id);
+
+        $recipe->name = request('name');
+        $recipe->category = request('category');
+        $recipe->description = request('description');
+        $recipe->ingredients = request('ingredients');
+        $recipe->preparation = request('preparation');
+
+        $recipe->save();
         return redirect('/');
     }
 
@@ -94,6 +144,9 @@ class RecipeController extends Controller
     {
         $recipe = recipe::findOrFail($id);
         $recipe->delete();
-        return redirect('/home');
+        return redirect('/home')->with([
+            'message' => "Receta eliminada",
+            'alert' => 'alert-primary'
+        ]);
     }
 }

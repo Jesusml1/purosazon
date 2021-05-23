@@ -1,10 +1,21 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
-<div class="content">
-    <div class='recipes-content'>
+@if(session()->has('message'))
+<div class="container">
+    <div class="alert {{session('alert') ?? 'alert-info'}} alert-dismissible fade show" role="alert">
+        {{ session('message') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+@endif
+
+<div class="container min-vh-100">
+    <div class="mb-4">
         @unless($msg == 'Todas las recetas')
-        <a class='back-btn' href="{{ url()->previous() }}">volver</a>
+        <a class='btn btn-secondary mb-4' href="{{ url()->previous() }}">Volver</a>
         @endunless
         <h2>{{ $msg }}</h2>
         @if( $type == 'search' && $recipes->isEmpty())
@@ -12,30 +23,45 @@
         @elseif($type == 'category' && $recipes->isEmpty())
         <h3>Aun no hay ninguna, agrega una!</h3>
         @endif
-        @foreach($recipes as $recipe)
-        <a href="/recipe/{{ $recipe->id }}" class='hover-link'>
-            <div class='recipe card'>
-                <div class='recipe__category'>
-                    {{ $recipe->category }},
-                    @php
-                    $format = '%Y-%m-%d %H:%M:%S';
-                    $time = strtotime($recipe->created_at);
-                    echo date('d', $time);
-                    echo '/';
-                    echo date('m', $time);
-                    echo '/';
-                    echo date('Y', $time);
-                    @endphp
-                </div>
-                <div class="recipe__name">
-                    {{ $recipe->name }}
-                </div>
-                <div class='recipe__description'>
-                    {{ $recipe->description }}
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @foreach($recipes as $recipe)
+
+            <div class="card mb-4">
+                <h6 class="card-header">
+                    {{ $recipe->category }}
+                </h6>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{ $recipe->name }}
+                    </h4>
+                    <p class='text-secondary'>
+                        @php
+                        $time = strtotime($recipe->created_at);
+                        echo date('d', $time);
+                        echo '/';
+                        echo date('m', $time);
+                        echo '/';
+                        echo date('Y', $time);
+                        @endphp
+                        @if($type == 'search' || $type == 'category')
+                        , publicado por {{ $recipe->username }}
+                        @else
+                        , publicado por {{ $recipe->user->name }}
+                        @endif
+
+                    </p>
+                    <p class="card-text">
+                        {{ $recipe->description }}
+                    </p>
+                    <a href="/recipe/{{ $recipe->id }}" class="btn btn-primary float-right">Ver</a>
                 </div>
             </div>
-        </a>
-        @endforeach
+
+            @endforeach
+        </div>
     </div>
 </div>
 
