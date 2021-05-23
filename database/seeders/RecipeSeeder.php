@@ -39,9 +39,9 @@ class RecipeSeeder extends Seeder
                 'user_id' => '02b100c5-9bc4-4540-9ec9-9ac22524f546',
                 'name' =>  $faker->words(5, true),
                 'category' => $categories[$randomCategory],
-                'description' => $faker->words(10, true),
-                'ingredients' => $faker->words(20, true),
-                'preparation' => $faker->words(50, true),
+                'description' => $faker->words(20, true),
+                'ingredients' => $faker->words(40, true),
+                'preparation' => $faker->words(100, true),
                 'is_suspended' => false,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
