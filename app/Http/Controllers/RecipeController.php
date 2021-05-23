@@ -144,6 +144,9 @@ class RecipeController extends Controller
     {
         $recipe = recipe::findOrFail($id);
         $recipe->delete();
-        return redirect('/home');
+        return redirect('/home')->with([
+            'message' => "Receta eliminada",
+            'alert' => 'alert-primary'
+        ]);
     }
 }

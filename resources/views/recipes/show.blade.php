@@ -2,10 +2,11 @@
 
 @section('content')
 @if(session()->has('message'))
-<div class="container">
-    <div class="alert {{session('alert') ?? 'alert-info'}}">
-        {{ session('message') }}
-    </div>
+<div class="alert {{session('alert') ?? 'alert-info'}} alert-dismissible fade show" role="alert">
+    {{ session('message') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 @endif
 <div class="container mb-4">
@@ -48,16 +49,40 @@
     @if(Auth::user()->id == $recipe->user_id)
     <div class="d-flex mt-4">
         <a class="btn btn-secondary mr-4" href="/edit-recipe/{!! $recipe->id !!}">Editar</a>
-        <form action="/recipe/{{ $recipe->id }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-outline-danger">Eliminar receta</button>
-        </form>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Eliminar receta
+        </button>
     </div>
     @endif
     @endunless
 </div>
 
-
+@unless(!Auth::check())
+@if(Auth::user()->id == $recipe->user_id)
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar receta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" data-bs-dismiss="modal">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Seguro que deseas eliminar {{ $recipe->name }}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Descartar</button>
+                <form action="/recipe/{{ $recipe->id }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@endunless
 
 @endsection
