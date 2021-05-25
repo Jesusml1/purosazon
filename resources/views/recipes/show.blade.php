@@ -25,14 +25,15 @@
                 {{ $recipe->name }}
             </h1>
             <p class='text-secondary'>
-                @php
+                {{-- @php
                 $time = strtotime($recipe->created_at);
                 echo date('d', $time);
                 echo '/';
                 echo date('m', $time);
                 echo '/';
                 echo date('Y', $time);
-                @endphp
+                @endphp --}}
+                {{ dateFormater($recipe->created_at) }}
                 , pubilcado por {{ $recipe->user->name }}
             </p>
             <div class='recipe__description'>

@@ -38,14 +38,7 @@
                         {{ $recipe->name }}
                     </h4>
                     <p class='text-secondary'>
-                        @php
-                        $time = strtotime($recipe->created_at);
-                        echo date('d', $time);
-                        echo '/';
-                        echo date('m', $time);
-                        echo '/';
-                        echo date('Y', $time);
-                        @endphp
+                        {{ dateFormater($recipe->created_at) }}
                         @if($type == 'search' || $type == 'category')
                         , publicado por {{ $recipe->username }}
                         @else
