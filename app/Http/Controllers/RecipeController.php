@@ -7,6 +7,8 @@ use App\Models\Recipe;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 
@@ -148,5 +150,19 @@ class RecipeController extends Controller
             'message' => "Receta eliminada",
             'alert' => 'alert-primary'
         ]);
+    }
+
+
+    public function createPDF($id)
+    {
+        // retreive all records from db
+        $recipe = recipe::find($id);
+
+        // share data to view
+        view()->share('recipe', $recipe);
+        $pdf = PDF::loadView('recipes.show_pdf', $recipe);
+
+        // download PDF file with download method
+        return $pdf->download('recipe' . $id . '.pdf');
     }
 }

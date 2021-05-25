@@ -11,8 +11,9 @@
     </div>
 </div>
 @endif
-<div class="container mb-4">
+<div class="container mb-4 d-flex justify-content-between">
     <a class='btn btn-secondary' href='{{ url()->previous() }}'>Volver</a>
+    <a class="btn btn-primary" href="/recipe/{{ $recipe->id }}/pdf">Exportar PDF</a>
 </div>
 <div class="container">
     <div class="card">
